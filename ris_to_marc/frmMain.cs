@@ -123,9 +123,17 @@ namespace ia2hathitrust
                     {
                         string ark = GetArk(ia_struct);
                         string ia_record = JoinRecords(ark, ia_marc);
+                        if (lb_custom.Text.Trim().Length > 0 &&
+                            System.IO.File.Exists(lb_custom.Text))
+                        {
+                            ia_record = TransformRecord(ia_record, lb_custom.Text);
+                            if (ia_record.Trim().Length ==0)
+                            {
+                                break;
+                            }
+                        }
                         xml_buffer += ia_record;
-                        //System.Windows.Forms.MessageBox.Show(ia_record);
-                        
+                        //System.Windows.Forms.MessageBox.Show(ia_record);                    
                     }
                     count++;
 
@@ -143,6 +151,53 @@ namespace ia2hathitrust
             writer.Close();
             //System.Windows.Forms.MessageBox.Show("finished");
             lbStatus.Text = "Process has completed.";
+        }
+
+        private string TransformRecord(string stext, string sXSLT)
+        {
+            //use Saxon; which will be installed with MarcEdit; to allow xslt 1, 2, and 3
+
+            System.IO.StringReader sreader = new System.IO.StringReader(stext);
+            System.Xml.XmlReader xreader = System.Xml.XmlReader.Create(sreader);
+            Saxon.Api.Processor processor = new Saxon.Api.Processor();
+            Saxon.Api.XsltCompiler xsltCompiler = processor.NewXsltCompiler();
+            Saxon.Api.XdmNode input = processor.NewDocumentBuilder().Build(xreader);
+            
+
+            // Create a transformer for the stylesheet.
+            Saxon.Api.XsltTransformer transformer = null;
+            if (System.IO.File.Exists(sXSLT))
+            {
+                System.IO.FileStream xstream = new System.IO.FileStream(sXSLT, System.IO.FileMode.Open);                
+                xsltCompiler.BaseUri = new Uri(System.IO.Path.GetDirectoryName(sXSLT) + System.IO.Path.DirectorySeparatorChar.ToString(), UriKind.Absolute);             
+                transformer = xsltCompiler.Compile(xstream).Load();                
+            }
+            else
+            {
+                lbStatus.Text = "ERROR applying the cutom rules file";
+                return "";
+            }
+
+
+
+            // Set the root node of the source document to be the initial context node
+            transformer.InitialContextNode = input;
+
+            // Create a serializer
+            Saxon.Api.Serializer serializer = new Saxon.Api.Serializer();            
+            System.IO.TextWriter stringWriter = new System.IO.StringWriter();
+            serializer.SetOutputWriter(stringWriter);            
+            transformer.Run(serializer);
+            
+            string tmp = stringWriter.ToString();
+
+            //System.Windows.Forms.MessageBox.Show(tmp);
+            //****Remove these lines because all the white space was being removed on translation***
+            //System.Text.RegularExpressions.Regex objRegEx = new System.Text.RegularExpressions.Regex(@"\n +=LDR ", System.Text.RegularExpressions.RegexOptions.None);
+            //tmp = objRegEx.Replace(tmp, "\n" + @"=LDR ");
+
+            return tmp;
+
         }
 
         private string GetArk(string ia_struct)
@@ -253,7 +308,9 @@ namespace ia2hathitrust
             string sInstitution = ia2hathitrust.Properties.Settings.Default.institution;
             string sSaveFile = ia2hathitrust.Properties.Settings.Default.save_file;
             string sStart = ia2hathitrust.Properties.Settings.Default.end_date;
-            string sEnd = DateTime.Now.ToString("yyyy-mm-dd");
+            string sEnd = DateTime.Now.ToString("yyyy-MM-dd");
+            string scustom = ia2hathitrust.Properties.Settings.Default.custom;
+
             int search_type = ia2hathitrust.Properties.Settings.Default.search_type;
 
             if (sStart.Trim().Length > 0)
@@ -272,8 +329,13 @@ namespace ia2hathitrust
 
             txt_save.Text = sSaveFile;
             txt_start.Text = sStart;
-            txt_end.Text = ia2hathitrust.Properties.Settings.Default.end_date;
+            txt_end.Text = sEnd;
             txt_inst.Text = sInstitution;
+
+            if (scustom.Trim().Length > 0)
+            {
+                lb_custom.Text = scustom;
+            }
 
             switch (search_type)
             {
@@ -336,7 +398,20 @@ namespace ia2hathitrust
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //Open help
+            System.Diagnostics.Process.Start("http://marcedit.reeset.net/internet-archivehathitrust-data-packager");
+        }
 
+        private void cmd_setcustom_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog sd = new System.Windows.Forms.OpenFileDialog();
+            sd.Filter = "XSLT Rules File|*.xsl|All Files (*.*)|*.*";
+            sd.FilterIndex = 0;
+            sd.ShowDialog();
+            if (sd.FileName != "")
+            {
+                lb_custom.Text = sd.FileName;
+                ia2hathitrust.Properties.Settings.Default.custom = sd.FileName;
+            }
         }
     }
 }

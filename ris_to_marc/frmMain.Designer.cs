@@ -86,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 193);
+            this.label3.Location = new System.Drawing.Point(13, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 4;
@@ -96,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 369);
+            this.label4.Location = new System.Drawing.Point(13, 362);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 6;
@@ -105,7 +105,7 @@
             // 
             // txt_save
             // 
-            this.txt_save.Location = new System.Drawing.Point(108, 366);
+            this.txt_save.Location = new System.Drawing.Point(108, 359);
             this.txt_save.MaxLength = 3;
             this.txt_save.Name = "txt_save";
             this.txt_save.Size = new System.Drawing.Size(293, 26);
@@ -136,7 +136,7 @@
             // 
             this.cmdSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSave.Image = ((System.Drawing.Image)(resources.GetObject("cmdSave.Image")));
-            this.cmdSave.Location = new System.Drawing.Point(412, 367);
+            this.cmdSave.Location = new System.Drawing.Point(412, 360);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(26, 26);
             this.cmdSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +146,7 @@
             // 
             // txt_inst
             // 
-            this.txt_inst.Location = new System.Drawing.Point(22, 275);
+            this.txt_inst.Location = new System.Drawing.Point(22, 268);
             this.txt_inst.MaxLength = 3200;
             this.txt_inst.Name = "txt_inst";
             this.txt_inst.Size = new System.Drawing.Size(416, 26);
@@ -155,7 +155,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 321);
+            this.label5.Location = new System.Drawing.Point(18, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 20);
             this.label5.TabIndex = 13;
@@ -164,7 +164,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(239, 321);
+            this.label6.Location = new System.Drawing.Point(239, 314);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 14;
@@ -172,7 +172,7 @@
             // 
             // txt_start
             // 
-            this.txt_start.Location = new System.Drawing.Point(108, 318);
+            this.txt_start.Location = new System.Drawing.Point(108, 311);
             this.txt_start.MaxLength = 25;
             this.txt_start.Name = "txt_start";
             this.txt_start.Size = new System.Drawing.Size(115, 26);
@@ -180,7 +180,7 @@
             // 
             // txt_end
             // 
-            this.txt_end.Location = new System.Drawing.Point(322, 318);
+            this.txt_end.Location = new System.Drawing.Point(322, 311);
             this.txt_end.MaxLength = 25;
             this.txt_end.Name = "txt_end";
             this.txt_end.Size = new System.Drawing.Size(117, 26);
@@ -189,7 +189,7 @@
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(13, 469);
+            this.lbStatus.Location = new System.Drawing.Point(13, 462);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(62, 20);
             this.lbStatus.TabIndex = 17;
@@ -199,7 +199,7 @@
             // 
             this.rdContributor.AutoSize = true;
             this.rdContributor.Checked = true;
-            this.rdContributor.Location = new System.Drawing.Point(22, 242);
+            this.rdContributor.Location = new System.Drawing.Point(22, 235);
             this.rdContributor.Name = "rdContributor";
             this.rdContributor.Size = new System.Drawing.Size(113, 24);
             this.rdContributor.TabIndex = 18;
@@ -210,7 +210,7 @@
             // rdCollection
             // 
             this.rdCollection.AutoSize = true;
-            this.rdCollection.Location = new System.Drawing.Point(22, 219);
+            this.rdCollection.Location = new System.Drawing.Point(22, 212);
             this.rdCollection.Name = "rdCollection";
             this.rdCollection.Size = new System.Drawing.Size(104, 24);
             this.rdCollection.TabIndex = 19;
@@ -221,7 +221,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(96, 189);
+            this.pictureBox1.Location = new System.Drawing.Point(96, 178);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,7 +232,7 @@
             // lnkdebug
             // 
             this.lnkdebug.AutoSize = true;
-            this.lnkdebug.Location = new System.Drawing.Point(13, 405);
+            this.lnkdebug.Location = new System.Drawing.Point(13, 398);
             this.lnkdebug.Name = "lnkdebug";
             this.lnkdebug.Size = new System.Drawing.Size(97, 20);
             this.lnkdebug.TabIndex = 21;
@@ -242,19 +242,18 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(463, 25);
+            this.groupBox2.Location = new System.Drawing.Point(453, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1, 477);
+            this.groupBox2.Size = new System.Drawing.Size(1, 400);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
             // lb_custom
             // 
-            this.lb_custom.AutoSize = true;
             this.lb_custom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_custom.Location = new System.Drawing.Point(49, 440);
+            this.lb_custom.Location = new System.Drawing.Point(49, 427);
             this.lb_custom.Name = "lb_custom";
-            this.lb_custom.Size = new System.Drawing.Size(222, 20);
+            this.lb_custom.Size = new System.Drawing.Size(567, 26);
             this.lb_custom.TabIndex = 23;
             this.lb_custom.Text = "No custom rules file defined.";
             // 
@@ -262,7 +261,7 @@
             // 
             this.cmd_setcustom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmd_setcustom.Image = ((System.Drawing.Image)(resources.GetObject("cmd_setcustom.Image")));
-            this.cmd_setcustom.Location = new System.Drawing.Point(17, 434);
+            this.cmd_setcustom.Location = new System.Drawing.Point(17, 427);
             this.cmd_setcustom.Name = "cmd_setcustom";
             this.cmd_setcustom.Size = new System.Drawing.Size(26, 26);
             this.cmd_setcustom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -272,8 +271,8 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(634, 527);
             this.Controls.Add(this.cmd_setcustom);
             this.Controls.Add(this.lb_custom);
@@ -298,6 +297,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmMain";

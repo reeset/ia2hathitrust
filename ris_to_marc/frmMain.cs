@@ -305,6 +305,14 @@ namespace ia2hathitrust
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            if (ia2hathitrust.Properties.Settings.Default.institution.Trim().Length == 0)
+            {
+                try
+                {
+                    ia2hathitrust.Properties.Settings.Default.Upgrade();
+                }
+                catch { }
+            }
             string sInstitution = ia2hathitrust.Properties.Settings.Default.institution;
             string sSaveFile = ia2hathitrust.Properties.Settings.Default.save_file;
             string sStart = ia2hathitrust.Properties.Settings.Default.end_date;
@@ -411,6 +419,9 @@ namespace ia2hathitrust
             {
                 lb_custom.Text = sd.FileName;
                 ia2hathitrust.Properties.Settings.Default.custom = sd.FileName;
+            } else
+            {
+                lb_custom.Text = "";
             }
         }
     }
